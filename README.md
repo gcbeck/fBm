@@ -1,6 +1,6 @@
 # Fractional Brownian Time Series
 
-A Fractional Brownian Time Series Generator in Python for both long-range (Hurst > 0.5) and short-range (Hurst < 0.5 anti-) correlations. They are brought together at last in a Fractional Heston Generator that fuses rough volatility with persistent-momentum price increments using the *same* source of randomness, thus exhibiting the [Zumbach effect](https://bouchaud.substack.com/p/volatility-and-time-reversal-asymmetry). 
+A [Fractional Brownian Time Series Generator in Python](https://github.com/gcbeck/fBm) for both long-range (Hurst > 0.5) and short-range (Hurst < 0.5 anti-) correlations. They are brought together at last in a Fractional Heston Generator that fuses rough volatility with persistent-momentum price increments using the *same* source of randomness, thus exhibiting the [Zumbach effect](https://bouchaud.substack.com/p/volatility-and-time-reversal-asymmetry). 
 
 ## Up, in a Straight Line
 
@@ -26,7 +26,7 @@ Or we could be a lot lazier and spend some time at the riverside: plonk a drop o
 
 The problem with this microstructural dodge is that it's like a shortcut across a ravine: fractional Brownian motion (fBm) is quite difficult to generate. Fortunately there is a nifty little technique developed by [Abi Jaber](https://www.tandfonline.com/doi/abs/10.1080/14697688.2019.1615113) that efficiently builds a short-range (Hurst < 0.5) fractional process as a superposition of multiscale Ornstein-Uhlenbeck processes. In the script `FractionalKernel.py` we also employ the small optimization described by [Rosenbaum & Zhang](https://www.risk.net/cutting-edge/7954656/deep-calibration-of-the-quadratic-rough-heston-model) that enhances power-law kernel quadrature accuracy. 
 
-Gatheral famously claimed [volatility is rough](https://www.tandfonline.com/doi/full/10.1080/14697688.2017.1393551). While there is a [convincing argument](https://link.springer.com/article/10.1007/s13571-024-00322-2) that a simpler Gaussian volatility may do the job just as effectively, a short-range (anti-) correlated random series is useful not just as a potential volatility but also as a mid-frequency mean-reverting drfit. Here are some example fractional Brownian trajectories with `H = 0.2`:
+Gatheral famously claimed [volatility is rough](https://www.tandfonline.com/doi/full/10.1080/14697688.2017.1393551). While there is a [convincing argument](https://link.springer.com/article/10.1007/s13571-024-00322-2) that a simpler Gaussian volatility may do the job just as effectively, a short-range (anti-) correlated random series is useful not just as a potential volatility but also as a mid-frequency mean-reverting drift. Here are some candidate volatility fBm trajectories with `H = 0.2`:
 ![Rough Volatilities](./doc/Volatilities.png "Rough Volatilities")
 
 ## Long Ranger
